@@ -37,6 +37,18 @@ Microsoft Windows [版本 6.1.7601]
 
 C:\Users\hata>redis-cli.exe -h 127.0.0.1 -p 6379
 127.0.0.1:6379> set myKey abc
+
+127.0.0.1:6379> CONFIG GET dir
+1) "dir"
+2) "C:\\redis"
+127.0.0.1:6379> set aa aaa
+OK
+127.0.0.1:6379> get aa
+"aaa"
+127.0.0.1:6379> LAST
+(error) ERR unknown command 'LAST'
+127.0.0.1:6379> SAVE
+OK
 OK
 127.0.0.1:6379> get mykey
 (nil)
