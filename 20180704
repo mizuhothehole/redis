@@ -204,3 +204,51 @@ OK
 1) "timeout"
 2) "0"
 127.0.0.1:6379>
+
+
+127.0.0.1:6379> lpush qin apple
+(integer) 1
+127.0.0.1:6379> lpush qin banana
+(integer) 2
+127.0.0.1:6379> lpush qin tree
+(integer) 3
+127.0.0.1:6379> lrange qin
+(error) ERR wrong number of arguments for 'lrange' command
+127.0.0.1:6379> lrange qin 0 10
+1) "tree"
+2) "banana"
+3) "apple"
+127.0.0.1:6379> sadd qinset abc
+(integer) 1
+127.0.0.1:6379> aget qinset abc
+(error) ERR unknown command 'aget'
+127.0.0.1:6379> qinset
+(error) ERR unknown command 'qinset'
+127.0.0.1:6379> get qinset
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+127.0.0.1:6379> sget qinset
+(error) ERR unknown command 'sget'
+127.0.0.1:6379> srange qinset 0 10
+(error) ERR unknown command 'srange'
+127.0.0.1:6379> get qinset 0 10
+(error) ERR wrong number of arguments for 'get' command
+127.0.0.1:6379> smembers qinset
+1) "abc"
+127.0.0.1:6379> sadd qinset ccc
+(integer) 1
+127.0.0.1:6379> smembers qinset
+1) "abc"
+2) "ccc"
+127.0.0.1:6379> zadd qinzset 1 ahaha
+(integer) 1
+127.0.0.1:6379> zadd qinzset 2.2 haha
+(integer) 1
+127.0.0.1:6379> zrangebyscore qinzset
+(error) ERR wrong number of arguments for 'zrangebyscore' command
+127.0.0.1:6379> zrangebyscore qinset 0 10
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+127.0.0.1:6379> zrangebyscore qinzset 0 10
+1) "ahaha"
+2) "haha"
+127.0.0.1:6379>
+
